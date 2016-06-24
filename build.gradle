@@ -1,0 +1,11 @@
+defaultTasks 'clean', 'build'
+
+subprojects {
+    apply plugin: 'java'
+    apply from: "$rootDir/gradle/libraries.gradle"
+
+    ext {
+        version = '0.1-SNAPSHOT'
+        group = 'io.github.fdayamani.hearts'
+    }
+}

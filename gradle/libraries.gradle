@@ -1,0 +1,23 @@
+ext {
+    assertJVersion = '3.3.0'
+    guavaVersion = '19.0'
+    htmlUnitVersion = '2.21'
+    jbehaveVersion = '3.9.5'
+    junitVersion = '4.12'
+    mockitoVersion = '1.10.19'
+    seleniumVersion = '2.48.2'
+    sparkVersion = '2.3'
+
+    libs = [
+        // Main libs
+        guava:              "com.google.guava:guava:$guavaVersion",
+        spark:              "com.sparkjava:spark-core:$sparkVersion",
+        sparkMustache:      "com.sparkjava:spark-template-mustache:$sparkVersion",
+
+        // Testing libs
+        assertJ:            "org.assertj:assertj-core:$assertJVersion",
+        htmlUnit:           "net.sourceforge.htmlunit:htmlunit:$htmlUnitVersion",
+        junit:              "junit:junit:$junitVersion",
+        mockito:            "org.mockito:mockito-core:$mockitoVersion"
+    ]
+}

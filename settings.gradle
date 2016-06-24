@@ -1,0 +1,11 @@
+include 'domain',
+        'web'
+
+rootProject.name = 'hearts'
+
+rootProject.children.each { it ->
+    def moduleName      = it.name
+    it.name             = "${rootProject.name}-${moduleName}"
+    it.buildFileName    = "${moduleName}.gradle"
+}
+
