@@ -1,5 +1,9 @@
 defaultTasks 'clean', 'build'
 
+repositories {
+    mavenCentral()
+}
+
 subprojects {
     apply plugin: 'java'
     apply from: "$rootDir/gradle/libraries.gradle"
