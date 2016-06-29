@@ -2,9 +2,6 @@ apply plugin: 'application'
 apply plugin: 'com.github.johnrengelman.shadow'
 
 mainClassName = 'io.github.fdayamani.hearts.web.HeartsWeb'
-repositories {
-    mavenCentral()
-}
 
 dependencies {
     compile libs.guava
