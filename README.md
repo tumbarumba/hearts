@@ -1,10 +1,10 @@
-# hearts
+# Hearts
 
-Object of the Game
+## Object of the Game
 
 To be the player with the lowest score at the end of the game. When one player hits the agreed-upon score or higher, the game ends; and the player with the lowest score wins.
 
-Card Values/Scoring
+## Card Values/Scoring
 
 At the end of each hand, players count the number of hearts they have taken as well as the queen of spades, if applicable. Hearts count as one point each and the queen counts 13 points.
 
@@ -18,11 +18,11 @@ The game is usually played to 100 points (some play to 50).
 
 When a player takes all 13 hearts and the queen of spades in one hand, instead of losing 26 points, that player scores zero and each of his opponents score an additional 26 points.
 
-The Deal
+## The Deal
 
 Deal the cards one at a time, face down, clockwise. In a four-player game, each is dealt 13 cards; in a three-player game, the 2 of diamonds should be removed, and each player gets 17 cards; in a five-player game, the 2 of diamonds and 2 of clubs should be removed so that each player will get 10 cards.
 
-The Play
+## The Play
 
 The player holding the 2 of clubs after the pass makes the opening lead. If the 2 has been removed for the three handed game, then the 3 of clubs is led.
 
