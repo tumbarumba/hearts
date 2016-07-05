@@ -8,6 +8,7 @@ public class HeartsWeb {
     public static void main(String[] args) {
         TemplateEngine templateEngine = new MustacheTemplateEngine();
 
+        Spark.staticFileLocation("/assets");
         Spark.get("/", new HomePage(), templateEngine);
     }
 }
