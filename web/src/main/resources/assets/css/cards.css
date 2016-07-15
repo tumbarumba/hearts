@@ -1,0 +1,61 @@
+/* Card styles taken from https://github.com/drake-p/playing-cards */
+.cardstack, .hand {
+  position: relative;
+  height: 9.6em;
+}
+
+.card {
+  height: 8.85em;
+  width: 6.4em;
+  background: #fff url('/images/card-set.png') no-repeat;
+  background-size: 1300% 400%;
+  border: 1px solid #695d39;
+  -webkit-border-radius:  .5em;
+  -moz-border-radius:     .5em;
+  border-radius:          .5em;
+  -webkit-box-shadow:   0 0 .5em -.15em #000;
+  -moz-box-shadow:      0 0 .5em -.15em #000;
+  box-shadow:           0 0 .5em -.15em #000;
+  font-family: 'Times', serif;
+  text-align: left;
+  line-height: 1em;
+  padding-top: .25em;
+  padding-left: .1em;
+  letter-spacing: -.2em;
+  position: absolute;
+}
+
+/* SUITS */
+.C { background-position-y: 0%; color: #000; }
+.D { background-position-y: 33.3%; color: #890000; }
+.S { background-position-y: 66.7%; color: #000; }
+.H { background-position-y: 100%; color: #890000; }
+
+/* RANKS */
+.rankA  { background-position-x: 0; }
+.rank2  { background-position-x: 8.33%; }
+.rank3  { background-position-x: 16.67%; }
+.rank4  { background-position-x: 25%; }
+.rank5  { background-position-x: 33.33%; }
+.rank6  { background-position-x: 41.67%; }
+.rank7  { background-position-x: 50%; }
+.rank8  { background-position-x: 58.33%em; }
+.rank9  { background-position-x: 66.67%; }
+.rank10 { background-position-x: 75%;}
+.rankK  { background-position-x: 83.33%; }
+.rankQ  { background-position-x: 91.67%; }
+.rankJ  { background-position-x: 100%; }
+
+/* Lay cards out edge-to-edge */
+.card:nth-of-type(1) { left: 0; }
+.card:nth-of-type(2) { left: 7em; }
+.card:nth-of-type(3) { left: 14em; }
+.card:nth-of-type(4) { left: 21em; }
+.card:nth-of-type(5) { left: 28em; }
+
+/* Lay cards out in a stacked hand showing indices */
+.hand .card:nth-of-type(1) { left: 0; }
+.hand .card:nth-of-type(2) { left: 1em; }
+.hand .card:nth-of-type(3) { left: 2em; }
+.hand .card:nth-of-type(4) { left: 3em; }
+.hand .card:nth-of-type(5) { left: 4em; }
