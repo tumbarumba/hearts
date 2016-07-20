@@ -29,6 +29,10 @@
   position: absolute;
 }
 
+.card.blank {
+  background-image: none;
+}
+
 /* SUITS */
 .C { background-position-y: 0%; color: #000; }
 .D { background-position-y: 33.3%; color: #890000; }
@@ -95,3 +99,5 @@
 .hand.vertical .card:nth-of-type(11) { left: 0; top: 25em; }
 .hand.vertical .card:nth-of-type(12) { left: 0; top: 27.5em; }
 .hand.vertical .card:nth-of-type(13) { left: 0; top: 30em; }
+
+
