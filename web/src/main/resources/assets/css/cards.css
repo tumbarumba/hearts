@@ -4,6 +4,10 @@
   height: 9.6em;
 }
 
+.hand.vertical {
+   height: 40em;
+}
+
 .card {
   height: 8.85em;
   width: 6.4em;
@@ -75,3 +79,19 @@
 .hand .card:nth-of-type(11) { left: 20em; }
 .hand .card:nth-of-type(12) { left: 22em; }
 .hand .card:nth-of-type(13) { left: 24em; }
+
+
+    /* Lay cards out edge-to-edge */
+.hand.vertical .card:nth-of-type(1) { left: 0; top: 0; }
+.hand.vertical .card:nth-of-type(2) { left: 0; top: 2.5em; }
+.hand.vertical .card:nth-of-type(3) { left: 0; top: 5em; }
+.hand.vertical .card:nth-of-type(4) { left: 0; top: 7.5em; }
+.hand.vertical .card:nth-of-type(5) { left: 0; top: 10em; }
+.hand.vertical .card:nth-of-type(6) { left: 0; top: 12.5em; }
+.hand.vertical .card:nth-of-type(7) { left: 0; top: 15em; }
+.hand.vertical .card:nth-of-type(8) { left: 0; top: 17.5em; }
+.hand.vertical .card:nth-of-type(9) { left: 0; top: 20em; }
+.hand.vertical .card:nth-of-type(10) { left: 0; top: 22.5em; }
+.hand.vertical .card:nth-of-type(11) { left: 0; top: 25em; }
+.hand.vertical .card:nth-of-type(12) { left: 0; top: 27.5em; }
+.hand.vertical .card:nth-of-type(13) { left: 0; top: 30em; }
