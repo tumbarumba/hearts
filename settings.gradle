@@ -1,5 +1,6 @@
 include 'domain',
-        'web'
+        'web',
+        'specifications'
 
 rootProject.name = 'hearts'
 

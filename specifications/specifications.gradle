@@ -1,0 +1,20 @@
+configurations {
+    jbehaveResources.transitive = false
+}
+
+dependencies {
+    compile project(':hearts-web')
+    compile libs.jbehave
+
+    testCompile libs.junit
+    testCompile libs.mockito
+
+    jbehaveResources libs.jbehaveResources
+}
+
+task copyJBehaveResources(type: Copy) {
+    from({zipTree(configurations.jbehaveResources.singleFile)})
+    into "$buildDir/reports/jbehave/view"
+}
+
+test.finalizedBy copyJBehaveResources
