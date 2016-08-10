@@ -1,14 +1,17 @@
 package io.github.fdayamani.hearts.specifications;
 
+import io.github.fdayamani.hearts.Hand;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import org.junit.Assert;
 import org.junit.Test;
 
 import static io.github.fdayamani.hearts.specifications.LightweightTestEmbedder.aLightweightTestRunnerWithStepsFrom;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class FirstDealStory {
+    Hand hand;
+
     @Test
     public void verifyFirstDealStory() throws Exception {
         aLightweightTestRunnerWithStepsFrom(this)
@@ -18,7 +21,7 @@ public class FirstDealStory {
 
     @Given("that the player has a hand containing $cards")
     public void givenHandContains(String cards) {
-        System.out.println("Cards: " + cards);
+        hand = new Hand(cards);
     }
 
     @When("the cards are displayed")
@@ -28,6 +31,6 @@ public class FirstDealStory {
 
     @Then("the cards are shown in the order $orderedCards")
     public void assertCardsAreOrderedCorrectly(String orderedCards) {
-        Assert.fail("You've not even done anything yet");
+        assertThat(hand.orderCards()).isEqualTo(orderedCards.split(","));
     }
 }
