@@ -16,8 +16,8 @@ public enum Rank {
     ACE("A", 13);
 
     private final String actualRank;
-
     private final int relativeRank;
+
     Rank(String actualRank, int relativeRank) {
         this.actualRank = actualRank;
         this.relativeRank = relativeRank;

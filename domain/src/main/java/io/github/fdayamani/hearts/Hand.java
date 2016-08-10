@@ -16,7 +16,7 @@ public class Hand {
     public String orderCards() {
         StringBuffer buffer = new StringBuffer();
         cards.stream()
-                .sorted(Card.byRank)
+                .sorted(Card.bySuit.thenComparing(Card.byRank))
                 .forEach(c -> buffer.append(c.toString() + ", "));
         return buffer.delete(buffer.length() - 2, buffer.length()).toString();
     }

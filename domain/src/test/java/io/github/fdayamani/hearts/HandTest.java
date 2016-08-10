@@ -7,11 +7,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class HandTest {
     @Test public void
     anOrderedHandOfAllHeartsIsReturnedAsIs() {
-        Hand handOfAllHearts = new Hand("A♥, K♥, Q♥, J♥, 10♥, 9♥, 8♥, 7♥, 6♥, 5♥, 4♥, 3♥, 2♥");
+        Hand handOfAllHearts = new Hand("2♥, 3♥, 4♥, 5♥, 6♥, 7♥, 8♥, 9♥, 10♥, J♥, Q♥, K♥, A♥");
 
         String orderedHand = handOfAllHearts.orderCards();
 
-        assertThat(orderedHand).isEqualTo("A♥, K♥, Q♥, J♥, 10♥, 9♥, 8♥, 7♥, 6♥, 5♥, 4♥, 3♥, 2♥");
+        assertThat(orderedHand).isEqualTo("2♥, 3♥, 4♥, 5♥, 6♥, 7♥, 8♥, 9♥, 10♥, J♥, Q♥, K♥, A♥");
     }
 
     @Test public void
@@ -20,6 +20,16 @@ public class HandTest {
 
         String orderedHand = handOfAllHearts.orderCards();
 
-        assertThat(orderedHand).isEqualTo("A♥, K♥, Q♥, J♥, 10♥, 9♥, 8♥, 7♥, 6♥, 5♥, 4♥, 3♥, 2♥");
+        assertThat(orderedHand).isEqualTo("2♥, 3♥, 4♥, 5♥, 6♥, 7♥, 8♥, 9♥, 10♥, J♥, Q♥, K♥, A♥");
+    }
+
+
+    @Test public void
+    aHandOfAllTwosIsOrderedBySuit() {
+        Hand handOfAllTwos = new Hand("2♥, 2♠, 2♣, 2♦");
+
+        String orderedHand = handOfAllTwos.orderCards();
+
+        assertThat(orderedHand).isEqualTo("2♣, 2♦, 2♠, 2♥");
     }
 }

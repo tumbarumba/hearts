@@ -31,6 +31,6 @@ public class FirstDealStory {
 
     @Then("the cards are shown in the order $orderedCards")
     public void assertCardsAreOrderedCorrectly(String orderedCards) {
-        assertThat(hand.orderCards()).isEqualTo(orderedCards.split(","));
+        assertThat(hand.orderCards()).isEqualTo(orderedCards);
     }
 }
