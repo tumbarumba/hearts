@@ -1,33 +1,33 @@
 package io.github.fdayamani.hearts;
 
 public enum Suit {
-    HEARTS("♥", 4),
-    SPADES("♠", 3),
+    CLUBS(   "♣", 1),
     DIAMONDS("♦", 2),
-    CLUBS("♣", 1);
+    SPADES(  "♠", 3),
+    HEARTS(  "♥", 4);
 
-    private final String actualSuit;
+    private final String display;
+    private final int displayOrder;
 
-    private final int relativeSuit;
-    Suit(String actualSuit, int relativeSuit) {
-        this.actualSuit = actualSuit;
-        this.relativeSuit = relativeSuit;
+    Suit(String display, int displayOrder) {
+        this.display = display;
+        this.displayOrder = displayOrder;
     }
 
-    public static Suit getSuit(String actualSuit) {
+    public static Suit lookupSuit(String displaySuit) {
         for (Suit suit : values()) {
-            if (suit.actualSuit.equals(actualSuit)) {
+            if (suit.display.equals(displaySuit)) {
                 return suit;
             }
         }
         return null;
     }
 
-    public String getActualSuit() {
-        return actualSuit;
+    public String getDisplay() {
+        return display;
     }
 
-    public int getRelativeSuit() {
-        return relativeSuit;
+    public int getDisplayOrder() {
+        return displayOrder;
     }
 }

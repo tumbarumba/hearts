@@ -15,28 +15,28 @@ public enum Rank {
     KING("K", 12),
     ACE("A", 13);
 
-    private final String actualRank;
-    private final int relativeRank;
+    private final String display;
+    private final int sortOrder;
 
-    Rank(String actualRank, int relativeRank) {
-        this.actualRank = actualRank;
-        this.relativeRank = relativeRank;
+    Rank(String display, int sortOrder) {
+        this.display = display;
+        this.sortOrder = sortOrder;
     }
 
-    public static Rank getRank(String actualRank) {
+    public static Rank lookupRank(String actualRank) {
         for (Rank rank : values()) {
-            if (rank.actualRank.equals(actualRank)) {
+            if (rank.display.equals(actualRank)) {
                 return rank;
             }
         }
         return null;
     }
 
-    public String getActualRank() {
-        return actualRank;
+    public String getDisplay() {
+        return display;
     }
 
-    public int getRelativeRank() {
-        return relativeRank;
+    public int getSortOrder() {
+        return sortOrder;
     }
 }

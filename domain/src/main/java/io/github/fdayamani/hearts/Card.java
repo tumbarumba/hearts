@@ -8,23 +8,23 @@ public class Card {
     private final Suit suit;
 
     static Comparator<Card> byRank = (c1, c2) -> Integer.compare(
-            c1.rank.getRelativeRank(),
-            c2.rank.getRelativeRank()
+            c1.rank.getSortOrder(),
+            c2.rank.getSortOrder()
     );
 
     static Comparator<Card> bySuit = (c1, c2) -> Integer.compare(
-            c1.suit.getRelativeSuit(),
-            c2.suit.getRelativeSuit()
+            c1.suit.getDisplayOrder(),
+            c2.suit.getDisplayOrder()
     );
 
     public Card(String card) {
-        this.rank = Rank.getRank(card.substring(0, card.length() - 1));
-        this.suit = Suit.getSuit(card.substring(card.length() - 1));
+        this.rank = Rank.lookupRank(card.substring(0, card.length() - 1));
+        this.suit = Suit.lookupSuit(card.substring(card.length() - 1));
     }
 
     @Override
     public String toString() {
-        return rank.getActualRank() + suit.getActualSuit();
+        return rank.getDisplay() + suit.getDisplay();
     }
 
     @Override
