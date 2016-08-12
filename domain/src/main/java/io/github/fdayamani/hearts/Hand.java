@@ -1,23 +1,19 @@
 package io.github.fdayamani.hearts;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Hand {
 
-    private List<Card> cards = new ArrayList<>();
+    private final List<Card> cards;
 
-    public Hand(String cards) {
-        for (String card : cards.split(", ")) {
-            this.cards.add(new Card(card));
-        }
+    public Hand(List<Card> cards) {
+        this.cards = cards;
     }
 
-    public String orderCards() {
-        StringBuffer buffer = new StringBuffer();
-        cards.stream()
+    public List<Card> orderCards() {
+        return cards.stream()
                 .sorted(Card.bySuit.thenComparing(Card.byRank))
-                .forEach(c -> buffer.append(c.toString() + ", "));
-        return buffer.delete(buffer.length() - 2, buffer.length()).toString();
+                .collect(Collectors.toList());
     }
 }
