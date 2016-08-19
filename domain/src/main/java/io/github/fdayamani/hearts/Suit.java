@@ -20,7 +20,7 @@ public enum Suit {
                 return suit;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Could not resolve Suit from " + displaySuit);
     }
 
     public String getDisplay() {

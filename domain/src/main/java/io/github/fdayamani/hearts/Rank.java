@@ -29,7 +29,7 @@ public enum Rank {
                 return rank;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Could not resolve Rank from " + actualRank);
     }
 
     public String getDisplay() {

@@ -17,9 +17,9 @@ public class Card {
             c2.suit.getDisplayOrder()
     );
 
-    public Card(String card) {
-        this.rank = Rank.lookupRank(card.substring(0, card.length() - 1));
-        this.suit = Suit.lookupSuit(card.substring(card.length() - 1));
+    public Card(Rank rank, Suit suit) {
+        this.rank = rank;
+        this.suit = suit;
     }
 
     @Override
