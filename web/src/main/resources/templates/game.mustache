@@ -125,22 +125,14 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div id="player-4" class="player player-4">
-                <p>you</p>
-                <div class="hand">
-                    <div class="card rankQ H">Q <br/> &heartsuit;</div>
-                    <div class="card rank5 C">5 <br/> &clubsuit;</div>
-                    <div class="card rank10 C">10 <br/> &clubsuit;</div>
-                    <div class="card rank4 D">4 <br/> &diamondsuit;</div>
-                    <div class="card rank9 H">9 <br/> &heartsuit;</div>
-                    <div class="card rankQ C">Q <br/> &clubsuit;</div>
-                    <div class="card rank10 D">10 <br/> &diamondsuit;</div>
-                    <div class="card rank10 S">10 <br/> &spadesuit;</div>
-                    <div class="card rankJ H">J <br/> &heartsuit;</div>
-                    <div class="card rankQ S">Q <br/> &spadesuit;</div>
-                    <div class="card rankK H">K <br/> &heartsuit;</div>
-                    <div class="card rank9 D">9 <br/> &diamondsuit;</div>
-                    <div class="card rank3 H">3 <br/> &heartsuit;</div>
-                </div>
+                {{#player4}}
+                    <p>{{name}}</p>
+                    <div class="hand">
+                        {{#hand}}
+                            <div class="card rank{{rank}} {{suitClass}}">{{rank}} <br/> {{{suitEntity}}}</div>
+                        {{/hand}}
+                    </div>
+                {{/player4}}
             </div>
         </div>
     </div>

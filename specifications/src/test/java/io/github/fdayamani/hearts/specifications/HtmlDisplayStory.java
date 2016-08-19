@@ -36,9 +36,6 @@ import static org.mockito.Mockito.when;
 public class HtmlDisplayStory {
     private final TemplateEngine templateEngine = new MustacheTemplateEngine();
 
-    private final GamePage handler = new GamePage();
-    private final Request request = mock(Request.class);
-    private final Response response = mock(Response.class);
     private final Map<String, String> webToDisplay = ImmutableMap.of(
             "C", "♣",
             "D", "♦",
@@ -49,7 +46,6 @@ public class HtmlDisplayStory {
     private List<Card> actualCards;
 
     @Test
-    @Ignore
     public void verifyHtmlDisplayStory() throws Exception {
         aLightweightTestRunnerWithStepsFrom(this)
                 .withStory("stories/HtmlDisplay.story")
@@ -63,12 +59,15 @@ public class HtmlDisplayStory {
 
     @When("the playing area is displayed on the web page")
     public void cardsAreDisplayed() throws Exception {
+        GamePage handler = new GamePage(givenCards);
+        Request request = mock(Request.class);
+        Response response = mock(Response.class);
         URL gameUrl = new URL("http://www.example.com/");
-
         when(request.params(":gameId")).thenReturn("1");
-        String html = templateEngine.render(handler.handle(request, response));
-        StringWebResponse webResponse = new StringWebResponse(html, gameUrl);
 
+        String html = templateEngine.render(handler.handle(request, response));
+
+        StringWebResponse webResponse = new StringWebResponse(html, gameUrl);
         try(WebClient client = new WebClient()) {
             client.getOptions().setJavaScriptEnabled(false);
             client.getOptions().setCssEnabled(false);
