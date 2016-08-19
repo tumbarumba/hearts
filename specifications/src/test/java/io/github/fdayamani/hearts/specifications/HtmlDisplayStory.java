@@ -8,14 +8,11 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.google.common.collect.ImmutableMap;
 import io.github.fdayamani.hearts.Card;
 import io.github.fdayamani.hearts.Hand;
-import io.github.fdayamani.hearts.Rank;
-import io.github.fdayamani.hearts.Suit;
-import io.github.fdayamani.hearts.testing.CardConverter;
 import io.github.fdayamani.hearts.web.GamePage;
-import org.apache.commons.collections.map.UnmodifiableMap;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
+import org.junit.Ignore;
 import org.junit.Test;
 import spark.Request;
 import spark.Response;
@@ -23,7 +20,6 @@ import spark.TemplateEngine;
 import spark.template.mustache.MustacheTemplateEngine;
 
 import java.net.URL;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -43,13 +39,17 @@ public class HtmlDisplayStory {
     private final GamePage handler = new GamePage();
     private final Request request = mock(Request.class);
     private final Response response = mock(Response.class);
-    private final Map<String, String> webToDisplay = new HashMap();
+    private final Map<String, String> webToDisplay = ImmutableMap.of(
+            "C", "♣",
+            "D", "♦",
+            "S", "♠",
+            "H", "♥");
 
-    private WebClient client = new WebClient();
-    private Hand hand;
-    private HtmlPage page;
+    private List<Card> givenCards;
+    private List<Card> actualCards;
 
     @Test
+    @Ignore
     public void verifyHtmlDisplayStory() throws Exception {
         aLightweightTestRunnerWithStepsFrom(this)
                 .withStory("stories/HtmlDisplay.story")
@@ -58,7 +58,7 @@ public class HtmlDisplayStory {
 
     @Given("that the player's hand contains $cards")
     public void givenHandContains(String cards) {
-        populateWebToDisplay();
+        givenCards = buildCardsFrom(cards);
     }
 
     @When("the playing area is displayed on the web page")
@@ -69,31 +69,27 @@ public class HtmlDisplayStory {
         String html = templateEngine.render(handler.handle(request, response));
         StringWebResponse webResponse = new StringWebResponse(html, gameUrl);
 
-        page = HTMLParser.parseHtml(webResponse, client.getCurrentWindow());
-        hand = playerHandFrom(page);
+        try(WebClient client = new WebClient()) {
+            client.getOptions().setJavaScriptEnabled(false);
+            client.getOptions().setCssEnabled(false);
+            HtmlPage page = HTMLParser.parseHtml(webResponse, client.getCurrentWindow());
+            actualCards = extractPlayerHandFrom(page);
+        }
     }
 
-    @Then("the hand is shown in the order $orderedCards")
-    public void assertCardsAreOrderedCorrectly(String orderedCards) {
-        assertThat(hand.orderCards()).isEqualTo(buildCardsFrom(orderedCards));
+    @Then("the hand is shown in the order $expectedCards")
+    public void assertCardsAreOrderedCorrectly(String expectedCards) {
+        assertThat(actualCards).isEqualTo(buildCardsFrom(expectedCards));
     }
 
-    private void populateWebToDisplay() {
-        webToDisplay.put("C", "♣");
-        webToDisplay.put("D", "♦");
-        webToDisplay.put("S", "♠");
-        webToDisplay.put("H", "♥");
-    }
-
-    private Hand playerHandFrom(HtmlPage page) {
+    private List<Card> extractPlayerHandFrom(HtmlPage page) {
         DomElement player4 = page.getElementById("player-4");
-        List<Card> cards = streamOfChildElements(player4)
+        return streamOfChildElements(player4)
                 .filter(e -> classContains(e, "hand"))
                 .flatMap(e -> streamOfChildElements(e))
                 .filter(e -> classContains(e, "card"))
                 .map(e -> cardFrom(e))
                 .collect(Collectors.toList());
-        return new Hand(cards);
     }
 
     private Card cardFrom(DomElement e) {
