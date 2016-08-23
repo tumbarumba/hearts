@@ -1,4 +1,5 @@
 dependencies {
     testCompile libs.assertJ
     testCompile libs.junit
+    testCompile libs.mockito
 }

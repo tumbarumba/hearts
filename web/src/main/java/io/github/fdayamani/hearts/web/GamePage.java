@@ -25,7 +25,11 @@ public class GamePage implements TemplateViewRoute, Route {
         PlayerModel player1 = new PlayerModel("Player 1", emptyList());
         PlayerModel player2 = new PlayerModel("Player 2", emptyList());
         PlayerModel player3 = new PlayerModel("Player 3", emptyList());
-        PlayerModel player4 = new PlayerModel("You", hand.orderCards().stream().map(HtmlCard::new).collect(Collectors.toList()));
+        PlayerModel player4 = new PlayerModel("You",
+                hand.orderCards()
+                        .stream()
+                        .map(HtmlCard::new)
+                        .collect(Collectors.toList()));
 
         GameModel gameData = new GameModel("Game", gameId, player1, player2, player3, player4);
         return new ModelAndView(gameData, "game.mustache");

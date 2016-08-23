@@ -1,11 +1,16 @@
 package io.github.fdayamani.hearts;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Hand {
 
     private final List<Card> cards;
+
+    public Hand() {
+        cards = new ArrayList<>();
+    }
 
     public Hand(List<Card> cards) {
         this.cards = cards;
@@ -15,5 +20,9 @@ public class Hand {
         return cards.stream()
                 .sorted(Card.bySuit.thenComparing(Card.byRank))
                 .collect(Collectors.toList());
+    }
+
+    public void add(Card card) {
+        cards.add(card);
     }
 }
