@@ -19,7 +19,6 @@ public class GamePage implements TemplateViewRoute, Route {
         this.hand = new Hand(cards);
     }
 
-
     @Override
     public ModelAndView handle(Request request, Response response) throws Exception {
         String gameId = request.params(":gameId");

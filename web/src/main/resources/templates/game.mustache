@@ -25,51 +25,55 @@
 <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1>Hearts - <small>game #{{gameId}} - Round 1</small></h1>
+        <h1>Hearts - <small>{{title}} #{{gameId}} - Round 1</small></h1>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
           <div class="player player-2">
-              <p>Player 2 (AI)</p>
-              <div class="hand">
-                    <div class="card rank4 H">4 <br/> &heartsuit;</div>
-                    <div class="card rank9 C">9 <br/> &clubsuit;</div>
-                    <div class="card rank5 D">5 <br/> &diamondsuit;</div>
-                    <div class="card rank4 C">4 <br/> &clubsuit;</div>
-                    <div class="card rank8 C">8 <br/> &clubsuit;</div>
-                    <div class="card rankA H">A <br/> &heartsuit;</div>
-                    <div class="card rank9 S">9 <br/> &spadesuit;</div>
-                    <div class="card rank2 H">2 <br/> &heartsuit;</div>
-                    <div class="card rank10 H">10 <br/> &heartsuit;</div>
-                    <div class="card rank6 D">6 <br/> &diamondsuit;</div>
-                    <div class="card rank7 C">7 <br/> &clubsuit;</div>
-                    <div class="card rankA C">A <br/> &clubsuit;</div>
-                    <div class="card rank7 H">7 <br/> &heartsuit;</div>
-              </div>
+              {{#player2}}
+                  <p>{{name}}</p>
+                  <div class="hand">
+                        <div class="card rank4 H">4 <br/> &heartsuit;</div>
+                        <div class="card rank9 C">9 <br/> &clubsuit;</div>
+                        <div class="card rank5 D">5 <br/> &diamondsuit;</div>
+                        <div class="card rank4 C">4 <br/> &clubsuit;</div>
+                        <div class="card rank8 C">8 <br/> &clubsuit;</div>
+                        <div class="card rankA H">A <br/> &heartsuit;</div>
+                        <div class="card rank9 S">9 <br/> &spadesuit;</div>
+                        <div class="card rank2 H">2 <br/> &heartsuit;</div>
+                        <div class="card rank10 H">10 <br/> &heartsuit;</div>
+                        <div class="card rank6 D">6 <br/> &diamondsuit;</div>
+                        <div class="card rank7 C">7 <br/> &clubsuit;</div>
+                        <div class="card rankA C">A <br/> &clubsuit;</div>
+                        <div class="card rank7 H">7 <br/> &heartsuit;</div>
+                  </div>
+              {{/player2}}
           </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-2 col-md-offset-1">
           <div class="player player-1">
-            <p>Player 1 (AI)</p>
-                <div class="hand vertical">
-                      <div class="card rankA S">A <br/> &spadesuit;</div>
-                      <div class="card rank2 S">2 <br/> &spadesuit;</div>
-                      <div class="card rank8 H">8 <br/> &heartsuit;</div>
-                      <div class="card rank5 H">5 <br/> &heartsuit;</div>
-                      <div class="card rankK D">K <br/> &diamondsuit;</div>
-                      <div class="card rank7 S">7 <br/> &spadesuit;</div>
-                      <div class="card rank3 C">3 <br/> &clubsuit;</div>
-                      <div class="card rank7 D">7 <br/> &diamondsuit;</div>
-                      <div class="card rank6 S">6 <br/> &spadesuit;</div>
-                      <div class="card rankA D">A <br/> &diamondsuit;</div>
-                      <div class="card rank3 S">3 <br/> &spadesuit;</div>
-                      <div class="card rank6 C">6 <br/> &clubsuit;</div>
-                      <div class="card rank6 H">6 <br/> &heartsuit;</div>
-                </div>
-          </div>
+            {{#player1}}
+                <p>{{name}}</p>
+                    <div class="hand vertical">
+                          <div class="card rankA S">A <br/> &spadesuit;</div>
+                          <div class="card rank2 S">2 <br/> &spadesuit;</div>
+                          <div class="card rank8 H">8 <br/> &heartsuit;</div>
+                          <div class="card rank5 H">5 <br/> &heartsuit;</div>
+                          <div class="card rankK D">K <br/> &diamondsuit;</div>
+                          <div class="card rank7 S">7 <br/> &spadesuit;</div>
+                          <div class="card rank3 C">3 <br/> &clubsuit;</div>
+                          <div class="card rank7 D">7 <br/> &diamondsuit;</div>
+                          <div class="card rank6 S">6 <br/> &spadesuit;</div>
+                          <div class="card rankA D">A <br/> &diamondsuit;</div>
+                          <div class="card rank3 S">3 <br/> &spadesuit;</div>
+                          <div class="card rank6 C">6 <br/> &clubsuit;</div>
+                          <div class="card rank6 H">6 <br/> &heartsuit;</div>
+                    </div>
+              </div>
+            {{/player1}}
       </div>
       <div class="col-md-6">
           <div class="play-area">
@@ -103,23 +107,25 @@
       </div>
       <div class="col-md-3">
           <div class="player player-3">
-            <p>Player 3 (AI)</p>
-                <div class="hand vertical">
-                      <div class="card rankJ D">J <br/> &diamondsuit;</div>
-                      <div class="card rankK S">K <br/> &spadesuit;</div>
-                      <div class="card rank8 D">8 <br/> &diamondsuit;</div>
-                      <div class="card rank2 C">2 <br/> &clubsuit;</div>
-                      <div class="card rankJ S">J <br/> &spadesuit;</div>
-                      <div class="card rankQ D">Q <br/> &diamondsuit;</div>
-                      <div class="card rank3 D">3 <br/> &diamondsuit;</div>
-                      <div class="card rankK C">K <br/> &clubsuit;</div>
-                      <div class="card rank4 S">4 <br/> &spadesuit;</div>
-                      <div class="card rankJ C">J <br/> &clubsuit;</div>
-                      <div class="card rank5 S">5 <br/> &spadesuit;</div>
-                      <div class="card rank8 S">8 <br/> &spadesuit;</div>
-                      <div class="card rank2 D">2 <br/> &diamondsuit;</div>
-                </div>
-          </div>
+            {{#player3}}
+                <p>{{name}}</p>
+                    <div class="hand vertical">
+                          <div class="card rankJ D">J <br/> &diamondsuit;</div>
+                          <div class="card rankK S">K <br/> &spadesuit;</div>
+                          <div class="card rank8 D">8 <br/> &diamondsuit;</div>
+                          <div class="card rank2 C">2 <br/> &clubsuit;</div>
+                          <div class="card rankJ S">J <br/> &spadesuit;</div>
+                          <div class="card rankQ D">Q <br/> &diamondsuit;</div>
+                          <div class="card rank3 D">3 <br/> &diamondsuit;</div>
+                          <div class="card rankK C">K <br/> &clubsuit;</div>
+                          <div class="card rank4 S">4 <br/> &spadesuit;</div>
+                          <div class="card rankJ C">J <br/> &clubsuit;</div>
+                          <div class="card rank5 S">5 <br/> &spadesuit;</div>
+                          <div class="card rank8 S">8 <br/> &spadesuit;</div>
+                          <div class="card rank2 D">2 <br/> &diamondsuit;</div>
+                    </div>
+              </div>
+            {{/player3}}
       </div>
     </div>
     <div class="row">
