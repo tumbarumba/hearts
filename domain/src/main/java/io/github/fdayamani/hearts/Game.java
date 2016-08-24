@@ -14,10 +14,8 @@ public class Game {
     public void dealCards() {
         Deck deck = new Deck();
         while(deck.hasNextCard()) {
-            players.get(0).acceptCard(deck.nextCard());
-            players.get(1).acceptCard(deck.nextCard());
-            players.get(2).acceptCard(deck.nextCard());
-            players.get(3).acceptCard(deck.nextCard());
+            players.stream()
+                    .forEach(player -> player.acceptCard(deck.nextCard()));
         }
     }
 

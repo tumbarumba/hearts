@@ -1,5 +1,6 @@
 package io.github.fdayamani.hearts;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class Deck {
@@ -10,11 +11,10 @@ public class Deck {
     }
 
     private void create() {
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 13; j++) {
-                deck.push(new Card(Rank.values()[j], Suit.values()[i]));
-            }
-        }
+        Arrays.stream(Suit.values()).forEach(suit ->
+                    Arrays.stream(Rank.values())
+                            .forEach(rank -> deck.push(new Card(rank, suit)))
+        );
     }
 
     public boolean hasNextCard() {
