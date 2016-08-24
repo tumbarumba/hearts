@@ -17,12 +17,7 @@ public class GameTest {
 
     @Test public void
     fourPlayersAreAddedToAGame() {
-        Game game = new Game();
-
-        game.add(player1);
-        game.add(player2);
-        game.add(player3);
-        game.add(player4);
+        Game game = defaultNewGame();
 
         assertThat(game.hasPlayer(player1)).isTrue();
         assertThat(game.hasPlayer(player2)).isTrue();
@@ -43,5 +38,25 @@ public class GameTest {
         game.dealCards();
 
         verify(player, times(13)).acceptCard(any(Card.class));
+    }
+
+    @Test public void
+    thePlayerWithThe2OfClubsIsTheNextPlayer() {
+        Game game = defaultNewGame();
+
+        game.dealCards();
+
+        assertThat(game.nextPlayer()).isSameAs(player4);
+    }
+
+    private Game defaultNewGame() {
+        Game game = new Game();
+
+        game.add(player1);
+        game.add(player2);
+        game.add(player3);
+        game.add(player4);
+
+        return game;
     }
 }

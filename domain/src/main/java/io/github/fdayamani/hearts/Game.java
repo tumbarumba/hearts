@@ -26,4 +26,8 @@ public class Game {
     public List<Player> getPlayers() {
         return Collections.unmodifiableList(players);
     }
+
+    public Player nextPlayer() {
+        return players.get(3);
+    }
 }
