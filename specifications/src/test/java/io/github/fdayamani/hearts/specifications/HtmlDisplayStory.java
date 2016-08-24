@@ -7,7 +7,9 @@ import com.gargoylesoftware.htmlunit.html.HTMLParser;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.google.common.collect.ImmutableMap;
 import io.github.fdayamani.hearts.Card;
+import io.github.fdayamani.hearts.Game;
 import io.github.fdayamani.hearts.Hand;
+import io.github.fdayamani.hearts.Player;
 import io.github.fdayamani.hearts.web.GamePage;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
@@ -59,7 +61,13 @@ public class HtmlDisplayStory {
 
     @When("the playing area is displayed on the web page")
     public void cardsAreDisplayed() throws Exception {
-        GamePage handler = new GamePage(givenCards);
+        Game game = new Game();
+        game.add(new Player());
+        game.add(new Player());
+        game.add(new Player());
+        game.add(new Player(new Hand(givenCards)));
+
+        GamePage handler = new GamePage(game);
         Request request = mock(Request.class);
         Response response = mock(Response.class);
         URL gameUrl = new URL("http://www.example.com/");

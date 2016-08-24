@@ -1,6 +1,7 @@
 package io.github.fdayamani.hearts;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Game {
@@ -14,8 +15,7 @@ public class Game {
     public void dealCards() {
         Deck deck = new Deck();
         while(deck.hasNextCard()) {
-            players.stream()
-                    .forEach(player -> player.acceptCard(deck.nextCard()));
+            players.forEach(player -> player.acceptCard(deck.nextCard()));
         }
     }
 
@@ -24,6 +24,6 @@ public class Game {
     }
 
     public List<Player> getPlayers() {
-        return players;
+        return Collections.unmodifiableList(players);
     }
 }

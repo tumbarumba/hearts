@@ -1,7 +1,8 @@
 package io.github.fdayamani.hearts;
 
-import java.util.Arrays;
 import java.util.Stack;
+
+import static java.util.Arrays.stream;
 
 public class Deck {
     private Stack<Card> deck = new Stack<>();
@@ -11,9 +12,9 @@ public class Deck {
     }
 
     private void create() {
-        Arrays.stream(Suit.values()).forEach(suit ->
-                    Arrays.stream(Rank.values())
-                            .forEach(rank -> deck.push(new Card(rank, suit)))
+        stream(Suit.values()).forEach(suit ->
+                    stream(Rank.values()).forEach(rank ->
+                            deck.push(new Card(rank, suit)))
         );
     }
 
