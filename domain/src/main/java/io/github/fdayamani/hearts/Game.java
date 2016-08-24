@@ -24,4 +24,8 @@ public class Game {
     public boolean hasPlayer(Player player) {
         return players.contains(player);
     }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
 }

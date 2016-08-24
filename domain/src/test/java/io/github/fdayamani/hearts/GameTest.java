@@ -9,7 +9,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 public class GameTest {
-    private Game game = new Game();
+
     private Player player1 = new Player();
     private Player player2 = new Player();
     private Player player3 = new Player();
@@ -17,6 +17,8 @@ public class GameTest {
 
     @Test public void
     fourPlayersAreAddedToAGame() {
+        Game game = new Game();
+
         game.add(player1);
         game.add(player2);
         game.add(player3);
@@ -30,6 +32,8 @@ public class GameTest {
 
     @Test public void
     aPlayerReceives13Cards_In4PlayerGame() {
+        Game game = new Game();
+
         Player player = mock(Player.class);
         game.add(player);
         game.add(player1);
