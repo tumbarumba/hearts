@@ -2,6 +2,8 @@ package io.github.fdayamani.hearts;
 
 import org.junit.Test;
 
+import static io.github.fdayamani.hearts.Rank.*;
+import static io.github.fdayamani.hearts.Suit.CLUBS;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
@@ -41,12 +43,28 @@ public class GameTest {
     }
 
     @Test public void
-    thePlayerWithThe2OfClubsIsTheNextPlayer() {
+    thePlayerWithThe2OfClubsIsTheNextPlayerWhenTheGameStarts() {
         Game game = defaultNewGame();
 
         game.dealCards();
 
-        assertThat(game.nextPlayer()).isSameAs(player4);
+        Player nextPlayer = game.nextPlayer();
+        assertThat(nextPlayer.handContains(new Card(TWO, CLUBS))).isTrue();
+    }
+
+    @Test public void
+    ifNoPlayerHasThe2OfClubs_TheNextPlayerIsTheOneWhoWonThePreviousTrick() {
+        Game game = defaultNewGame();
+
+        game.dealCards();
+
+        player4.play(new Card(TWO, CLUBS));
+        player3.play(new Card(THREE, CLUBS));
+        player2.play(new Card(FOUR, CLUBS));
+        player1.play(new Card(FIVE, CLUBS));
+
+        assertThat(game.nextPlayer()).isEqualTo(player3);
+
     }
 
     private Game defaultNewGame() {

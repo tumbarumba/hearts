@@ -25,4 +25,15 @@ public class Hand {
     public void add(Card card) {
         cards.add(card);
     }
+
+    public boolean contains(Card card) {
+        return cards.contains(card);
+    }
+
+    public void remove(Card card) {
+        if(!this.contains(card)) {
+            throw new IllegalArgumentException("This hand does not contain " + card.toString());
+        }
+        cards.remove(card);
+    }
 }

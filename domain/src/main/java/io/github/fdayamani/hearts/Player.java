@@ -18,4 +18,12 @@ public class Player {
     public Hand getHand() {
         return hand;
     }
+
+    public boolean handContains(Card card) {
+        return hand.contains(card);
+    }
+
+    public void play(Card card) {
+        hand.remove(card);
+    }
 }
