@@ -12,10 +12,10 @@ import static org.mockito.Mockito.verify;
 
 public class GameTest {
 
-    private Player player1 = new Player();
-    private Player player2 = new Player();
-    private Player player3 = new Player();
-    private Player player4 = new Player();
+    private Player player1 = new HumanPlayer();
+    private Player player2 = new AIPlayer();
+    private Player player3 = new AIPlayer();
+    private Player player4 = new AIPlayer();
 
     @Test public void
     fourPlayersAreAddedToAGame() {
@@ -31,7 +31,7 @@ public class GameTest {
     aPlayerReceives13Cards_In4PlayerGame() {
         Game game = new Game();
 
-        Player player = mock(Player.class);
+        Player player = mock(HumanPlayer.class);
         game.add(player);
         game.add(player1);
         game.add(player2);
@@ -43,7 +43,7 @@ public class GameTest {
     }
 
     @Test public void
-    thePlayerWithThe2OfClubsIsTheNextPlayerWhenTheGameStarts() {
+    thePlayerWithThe2OfClubs_IsTheNextPlayerWhenTheGameStarts() {
         Game game = defaultNewGame();
 
         game.dealCards();

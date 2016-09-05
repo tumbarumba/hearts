@@ -1,7 +1,8 @@
 package io.github.fdayamani.hearts.web;
 
+import io.github.fdayamani.hearts.AIPlayer;
 import io.github.fdayamani.hearts.Game;
-import io.github.fdayamani.hearts.Player;
+import io.github.fdayamani.hearts.HumanPlayer;
 import spark.Spark;
 import spark.TemplateEngine;
 import spark.template.mustache.MustacheTemplateEngine;
@@ -28,10 +29,10 @@ public class HeartsWeb {
 
     private Game setup() {
         Game game = new Game();
-        game.add(new Player());
-        game.add(new Player());
-        game.add(new Player());
-        game.add(new Player());
+        game.add(new HumanPlayer());
+        game.add(new AIPlayer());
+        game.add(new AIPlayer());
+        game.add(new AIPlayer());
         game.dealCards();
         return game;
     }

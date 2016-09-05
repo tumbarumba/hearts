@@ -6,15 +6,11 @@ import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.HTMLParser;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.google.common.collect.ImmutableMap;
-import io.github.fdayamani.hearts.Card;
-import io.github.fdayamani.hearts.Game;
-import io.github.fdayamani.hearts.Hand;
-import io.github.fdayamani.hearts.Player;
+import io.github.fdayamani.hearts.*;
 import io.github.fdayamani.hearts.web.GamePage;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import org.junit.Ignore;
 import org.junit.Test;
 import spark.Request;
 import spark.Response;
@@ -62,10 +58,10 @@ public class HtmlDisplayStory {
     @When("the playing area is displayed on the web page")
     public void cardsAreDisplayed() throws Exception {
         Game game = new Game();
-        game.add(new Player());
-        game.add(new Player());
-        game.add(new Player());
-        game.add(new Player(new Hand(givenCards)));
+        game.add(new AIPlayer());
+        game.add(new AIPlayer());
+        game.add(new AIPlayer());
+        game.add(new HumanPlayer(new Hand(givenCards)));
 
         GamePage handler = new GamePage(game);
         Request request = mock(Request.class);

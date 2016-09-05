@@ -1,29 +1,11 @@
 package io.github.fdayamani.hearts;
 
-public class Player {
-    private Hand hand;
+public interface Player {
+    void acceptCard(Card card);
 
-    public Player() {
-        this.hand = new Hand();
-    }
+    Hand getHand();
 
-    public Player(Hand hand) {
-        this.hand = hand;
-    }
+    boolean handContains(Card card);
 
-    public void acceptCard(Card card) {
-        hand.add(card);
-    }
-
-    public Hand getHand() {
-        return hand;
-    }
-
-    public boolean handContains(Card card) {
-        return hand.contains(card);
-    }
-
-    public void play(Card card) {
-        hand.remove(card);
-    }
+    void play(Card card);
 }
