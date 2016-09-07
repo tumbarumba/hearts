@@ -3,6 +3,7 @@ package io.github.fdayamani.hearts;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static io.github.fdayamani.hearts.Rank.TWO;
@@ -32,12 +33,9 @@ public class Game {
     }
 
     public Player nextPlayer() {
-        List<Player> playersWithTwoOfClubs = players.stream()
+        Optional<Player> playerWithTwoOfClubs = players.stream()
                 .filter(player -> player.handContains(new Card(TWO, CLUBS)))
-                .collect(Collectors.toList());
-        if (!playersWithTwoOfClubs.isEmpty()) {
-            return playersWithTwoOfClubs.get(0);
-        }
-        return players.get(2);
+                .findFirst();
+        return playerWithTwoOfClubs.orElse(players.get(2));
     }
 }
