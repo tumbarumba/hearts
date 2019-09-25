@@ -1,5 +1,5 @@
 ext {
-    assertJVersion = '3.3.0'
+    assertJVersion = '3.11.1'
     guavaVersion = '28.1-jre'
     htmlUnitVersion = '2.21'
     jbehaveVersion = '4.0.5'
