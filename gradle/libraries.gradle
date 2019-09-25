@@ -2,7 +2,7 @@ ext {
     assertJVersion = '3.11.1'
     guavaVersion = '28.1-jre'
     htmlUnitVersion = '2.36.0'
-    jbehaveVersion = '4.0.5'
+    jbehaveVersion = '4.5.1'
     junitVersion = '4.12'
     mockitoVersion = '3.0.0'
     seleniumVersion = '2.48.2'

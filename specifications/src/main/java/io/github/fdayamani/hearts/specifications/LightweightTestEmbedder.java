@@ -44,7 +44,7 @@ public final class LightweightTestEmbedder extends ConfigurableEmbedder {
     }
 
     @Override
-    public void run() throws Exception {
+    public void run() {
         LOG.info("Running [" + this.getClass().getSimpleName() + "] with stories [" + storyPath + "]");
         configuredEmbedder().runStoriesAsPaths(asList(storyPath));
     }
@@ -76,7 +76,7 @@ public final class LightweightTestEmbedder extends ConfigurableEmbedder {
             withCodeLocation(codeLocationFromClass(codeLocationClass));
             withRelativeDirectory("../reports/jbehave");
             withDefaultFormats();
-            withFormats(CONSOLE, TXT, HTML_TEMPLATE, XML);
+            withFormats(CONSOLE);
             withFailureTrace(true);
         }
     }
