@@ -6,13 +6,14 @@ ext {
     junitVersion = '4.12'
     mockitoVersion = '3.0.0'
     seleniumVersion = '3.141.59'
-    sparkVersion = '2.3'
+    sparkVersion = '2.9.1'
+    sparkMustacheVersion = '2.7.1'
 
     libs = [
         // Main libs
         guava:              "com.google.guava:guava:$guavaVersion",
         spark:              "com.sparkjava:spark-core:$sparkVersion",
-        sparkMustache:      "com.sparkjava:spark-template-mustache:$sparkVersion",
+        sparkMustache:      "com.sparkjava:spark-template-mustache:$sparkMustacheVersion",
 
         // Testing libs
         assertJ:            "org.assertj:assertj-core:$assertJVersion",
