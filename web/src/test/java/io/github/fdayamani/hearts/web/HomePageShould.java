@@ -32,6 +32,10 @@ public class HomePageShould {
         String html = templateEngine.render(handler.handle(request, response));
         StringWebResponse webResponse = new StringWebResponse(html, gameUrl);
         WebClient client = new WebClient();
+        client.getOptions().setJavaScriptEnabled(false);
+        client.getOptions().setCssEnabled(false);
+        client.getOptions().setAppletEnabled(false);
+
         HtmlPage page = HTMLParser.parseHtml(webResponse, client.getCurrentWindow());
 
         assertThat(page.getTitleText(), equalTo("Hearts"));
