@@ -5,7 +5,7 @@ ext {
     jbehaveVersion = '4.5.1'
     junitVersion = '4.12'
     mockitoVersion = '3.0.0'
-    seleniumVersion = '2.48.2'
+    seleniumVersion = '3.141.59'
     sparkVersion = '2.3'
 
     libs = [
